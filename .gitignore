@@ -1,0 +1,54 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode
+
+# Laravel specific
+/bootstrap/cache/*.php
+.phpunit.cache/
+
+# Filament specific
+/public/vendor/filament/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Dependency directories
+bower_components/
+
+# Build directories
+/public/build/
+/public/css/
+/public/js/
+/public/mix-manifest.json
+
+# Testing
+/coverage/
+/tests/coverage/
+
+# Local development environment
+docker-compose.override.yml
