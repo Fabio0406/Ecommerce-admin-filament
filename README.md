@@ -1,83 +1,72 @@
-# Sistema de Gestión de Pedidos
+# E-Commerce Admin — Panel de gestión de pedidos
 
-Sistema de administración para gestionar pedidos, productos, clientes y proveedores desarrollado con Laravel y Filament.
+Panel de administración para una tienda en línea, construido con **Laravel 12** y **Filament 3**. Permite gestionar pedidos, productos, categorías, clientes y proveedores, y muestra en el tablero los ingresos totales, el estado de los pedidos y los productos más vendidos.
+
+> Proyecto académico — Ingeniería de Software II, UAGRM (2025).
+
+## Funcionalidades
+
+- **Pedidos**: crear, editar, ver detalle (con sus líneas de pedido) y listar.
+- **Productos** y **categorías**.
+- **Clientes** y **proveedores**.
+- **Tablero** con widgets:
+  - Ingresos totales
+  - Resumen de pedidos
+  - Productos más vendidos
+
+## Tecnologías
+
+- PHP 8.2, Laravel 12
+- Filament 3 (panel de administración)
+- Vite + Tailwind CSS
+- SQLite por defecto (también funciona con MySQL / MariaDB)
 
 ## Requisitos
 
-- PHP 8.1 o superior
+- PHP 8.2 o superior
 - Composer
-- MySQL o MariaDB
-- Node.js y NPM
+- Node.js y npm
 
 ## Instalación
 
-1. Clonar el repositorio:
-```bash
-git clone https://github.com/tu-usuario/nombre-repositorio.git
-cd nombre-repositorio
-```
-
-2. Instalar dependencias de PHP:
 ```bash
 composer install
-```
-
-3. Instalar dependencias de JavaScript:
-```bash
 npm install
 npm run build
-```
 
-4. Copiar el archivo de entorno:
-```bash
 cp .env.example .env
-```
-
-5. Configurar el archivo .env con tus credenciales de base de datos y otras configuraciones.
-
-6. Generar la clave de la aplicación:
-```bash
 php artisan key:generate
-```
-
-7. Ejecutar las migraciones:
-```bash
 php artisan migrate
+php artisan db:seed        # opcional: datos de prueba
 ```
 
-8. (Opcional) Ejecutar los seeders para datos de prueba:
+Para usar MySQL, cambia `DB_CONNECTION` y los datos de conexión en `.env`.
+
+Crear un usuario administrador:
+
 ```bash
-php artisan db:seed
+php artisan make:filament-user
 ```
-
-## Características
-
-- Gestión de pedidos
-- Catálogo de productos
-- Gestión de clientes
-- Gestión de proveedores
-- Panel de administración con Filament
-- Reportes de ingresos
 
 ## Uso
 
-Para iniciar el servidor de desarrollo:
 ```bash
 php artisan serve
 ```
 
-Acceso al panel de administración:
-- URL: http://localhost:8000/admin
-- Usuario: admin@example.com
-- Contraseña: password (cambiar en producción)
+Panel de administración: `http://localhost:8000/admin`
 
-## Estructura del proyecto
+## Estructura
 
-- `app/` - Contiene los modelos, controladores y lógica de la aplicación
-- `app/Filament/` - Recursos y configuraciones de Filament
-- `resources/` - Vistas, archivos CSS/JS y otros recursos
-- `database/` - Migraciones y seeders
-- `routes/` - Definición de rutas
+```
+app/
+├── Models/                    # Categoria, Cliente, Pedido, DetallePedido, Producto, Proveedor
+├── Filament/Resources/        # CRUD de cada entidad en el panel
+│   └── Widgets/               # Ingresos, pedidos y productos más vendidos
+└── Providers/Filament/        # Configuración del panel /admin
+database/migrations/           # Tablas de la base de datos
+routes/                        # Rutas web
+```
 
 ## Licencia
 
